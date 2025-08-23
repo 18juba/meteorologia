@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`font1 antialiased bg-gradient-to-br from-slate-800 via-cyan-950 to-slate-900`}
+        className={`min-h-screen relative font1 antialiased bg-gradient-to-br from-slate-800 via-cyan-950 to-slate-900`}
       >
         {children}
       </body>
