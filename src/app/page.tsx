@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import Header from "@/components/layout/Header";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,11 +9,63 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { MapPin, Thermometer, Droplets, Wind, Sun } from "lucide-react";
+import TVNoise from "@/components/ui/tv-noise";
+
+const cityData = {
+  fortaleza: {
+    name: "Fortaleza, CE",
+    temp: "31",
+    condition: "Parcialmente nublado",
+    insight:
+      "Temperatura ideal para atividades ao ar livre. Umidade baixa (45%) proporciona sensação de conforto. Sem previsão de chuva nas próximas 6 horas.",
+  },
+  "rio-janeiro": {
+    name: "Rio de Janeiro, RJ",
+    temp: "28",
+    condition: "Ensolarado",
+    insight:
+      "Dia quente e ensolarado. Umidade alta (75%) pode causar desconforto. Recomenda-se hidratação constante e proteção solar.",
+  },
+  "belo-horizonte": {
+    name: "Belo Horizonte, MG",
+    temp: "22",
+    condition: "Nublado",
+    insight:
+      "Temperatura amena com céu nublado. Possibilidade de chuva leve no final da tarde. Ideal para atividades internas.",
+  },
+  salvador: {
+    name: "Salvador, BA",
+    temp: "30",
+    condition: "Sol e nuvens",
+    insight:
+      "Clima tropical típico. Brisa marítima ameniza o calor. Excelente para atividades na praia com proteção solar adequada.",
+  },
+};
 
 export default function Home() {
+  const [selectedCity, setSelectedCity] = useState<string>("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleCityChange = (value: string) => {
+    setIsLoading(true);
+    setSelectedCity("");
+
+    setTimeout(() => {
+      setSelectedCity(value);
+      setIsLoading(false);
+    }, 500);
+  };
+
   return (
     <div className="">
       <Header />
@@ -64,17 +117,17 @@ export default function Home() {
 
           {/* Right Column - Features Grid */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold">
-              O que você vai receber
-            </h2>
+            <h2 className="text-2xl font-semibold">O que você vai receber</h2>
 
             <div className="grid grid-cols-2 gap-4">
               <Card className="p-4 bg-cyan-950/50">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="p-2 bg-primary/10 rounded-lg">
-                    <Thermometer className="w-5 h-5" />
+                    <Thermometer className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="font-semibold text-sm text-white">Temperatura</h3>
+                  <h3 className="font-semibold text-sm text-white">
+                    Temperatura
+                  </h3>
                 </div>
                 <p className="text-xs text-slate-300">
                   Monitoramento em tempo real e previsões precisas
@@ -84,7 +137,7 @@ export default function Home() {
               <Card className="p-4 bg-cyan-950/50">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="p-2 bg-primary/10 rounded-lg">
-                    <Droplets className="w-5 h-5 text-primary" />
+                    <Droplets className="w-5 h-5 text-white" />
                   </div>
                   <h3 className="font-semibold text-sm text-white">Umidade</h3>
                 </div>
@@ -96,7 +149,7 @@ export default function Home() {
               <Card className="p-4 bg-cyan-950/50">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="p-2 bg-primary/10 rounded-lg">
-                    <Wind className="w-5 h-5 text-primary" />
+                    <Wind className="w-5 h-5 text-white" />
                   </div>
                   <h3 className="font-semibold text-sm text-white">Vento</h3>
                 </div>
@@ -108,7 +161,7 @@ export default function Home() {
               <Card className="p-4 bg-cyan-950/50">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="p-2 bg-primary/10 rounded-lg">
-                    <Sun className="w-5 h-5 text-primary" />
+                    <Sun className="w-5 h-5 text-white" />
                   </div>
                   <h3 className="font-semibold text-sm text-white">UV Index</h3>
                 </div>
@@ -118,27 +171,63 @@ export default function Home() {
               </Card>
             </div>
 
+            <div className="flex items-center justify-between">
+              <h3 className="font-semibold">Insight do dia</h3>
+              <Select onValueChange={handleCityChange}>
+                <SelectTrigger className="w-48">
+                  <SelectValue placeholder="Selecione uma cidade" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="fortaleza">Fortaleza, CE</SelectItem>
+                  <SelectItem value="rio-janeiro">
+                    Rio de Janeiro, RJ
+                  </SelectItem>
+                  <SelectItem value="belo-horizonte">
+                    Belo Horizonte, MG
+                  </SelectItem>
+                  <SelectItem value="salvador">Salvador, BA</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
             {/* Sample Insight Card */}
-            <Card className="p-6 bg-white/10 border-none text-white">
-              <div className="flex items-start justify-between mb-4">
-                <div>
-                  <h3 className="font-semibold">
-                    Insight do dia
-                  </h3>
-                  <p className="text-sm text-slate-300">São Paulo, SP</p>
-                </div>
-                <div className="text-right">
-                  <div className="text-2xl font-bold text-cyan-400">24°C</div>
-                  <div className="text-xs">
-                    Parcialmente nublado
+            <Card className="relative p-6 bg-white/5 border-none text-white">
+              <div className="space-y-4">
+                {isLoading ? (
+                  <div className="h-32 rounded-lg flex items-center justify-center">
+                    <TVNoise opacity={0.3} intensity={0.2} speed={40} />
                   </div>
-                </div>
+                ) : selectedCity ? (
+                  <div className="space-y-2">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <p className="">
+                          {cityData[selectedCity as keyof typeof cityData].name}
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-2xl font-bold text-cyan-400">
+                          {cityData[selectedCity as keyof typeof cityData].temp}{" "}
+                          °C
+                        </div>
+                        <div className="text-xs text-slate-400">
+                          {
+                            cityData[selectedCity as keyof typeof cityData]
+                              .condition
+                          }
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-sm text-slate-200">
+                      {cityData[selectedCity as keyof typeof cityData].insight}
+                    </p>
+                  </div>
+                ) : (
+                  <div className="h-32 rounded-lg flex items-center justify-center">
+                    <TVNoise opacity={1} intensity={0.2} speed={20} />
+                  </div>
+                )}
               </div>
-              <p className="text-sm">
-                Temperatura ideal para atividades ao ar livre. Umidade baixa
-                (45%) proporciona sensação de conforto. Sem previsão de chuva
-                nas próximas 6 horas.
-              </p>
             </Card>
           </div>
         </div>
