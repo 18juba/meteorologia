@@ -1,0 +1,14 @@
+{
+  "welcome": "Welcome",
+  "temperature": "Temperature",
+  
+  "cold-title": "It's cold!",
+  "cold-text": "A temperature below 15 °C is considered cold and calls for layered clothing, a hat, and gloves. Warm drinks help keep the body warm, and it's best to avoid wind and rain.",
+
+  "mild-title": "It's mild.",
+  "mild-text": "A temperature between 16 °C and 25 °C is considered mild and pleasant. Light clothing is ideal and can be paired with a light jacket in the morning or evening.",
+
+  "hot-title": "It's hot!",
+  "hot-text": "A temperature above 26 °C is considered hot and requires constant hydration. Wear light clothes, use sunscreen, and avoid direct sun during the hottest hours of the day."
+
+}

@@ -1,0 +1,16 @@
+{
+  "welcome": "Bem-vindo",
+  "temperature": "Temperatura",
+
+
+  "cold-title": "Faz frio!",
+  "cold-text": "Uma temperatura abaixo de 15 °C é considerada fria e pede o uso de roupas de camadas, gorro e luvas. Bebidas quentes ajudam a manter o corpo aquecido e é bom evitar vento e chuva.",
+  
+  
+  "mild-title": "Esta ameno.",
+  "mild-text": "Uma temperatura entre 16 °C e 25 °C é considerada amena e agradável. Roupas leves são ideais, podendo ser combinadas com um casaco fino à noite ou pela manhã.",
+  
+  
+  "hot-title": "Faz calor!",
+  "hot-text": "Uma temperatura acima de 26 °C é considerada quente e exige hidratação constante. Use roupas leves, protetor solar e evite sol direto nos horários mais quentes do dia."
+}

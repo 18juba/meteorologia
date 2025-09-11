@@ -1,0 +1,14 @@
+{
+  "welcome": "Bienvenido",
+  "temperature": "Temperatura",
+  
+  "cold-title": "¡Hace frío!",
+  "cold-text": "Una temperatura por debajo de 15 °C se considera fría y requiere usar ropa en capas, gorro y guantes. Las bebidas calientes ayudan a mantener el cuerpo abrigado y es mejor evitar el viento y la lluvia.",
+
+  "mild-title": "Está templado.",
+  "mild-text": "Una temperatura entre 16 °C y 25 °C se considera templada y agradable. La ropa ligera es ideal, y se puede combinar con una chaqueta fina por la noche o por la mañana.",
+
+  "hot-title": "¡Hace calor!",
+  "hot-text": "Una temperatura por encima de 26 °C se considera calurosa y exige hidratación constante. Usa ropa ligera, protector solar y evita el sol directo en las horas más calurosas del día."
+
+}

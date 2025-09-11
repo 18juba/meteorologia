@@ -1,6 +1,6 @@
-import React from "react";
+import React, { JSX } from "react";
 
-const Register = () => {
+function Register(): JSX.Element  {
   return (
     <div className="w-full h-screen flex justify-center items-center">
       <div className="p-4 mx-auto max-w-md flex flex-col gap-4 justify-center items-center border-2 border-cyan-400/50 rounded-md">
