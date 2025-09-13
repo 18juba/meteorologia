@@ -13,7 +13,7 @@ export function getCurrentLanguage(defaultLang: string = 'pt'): string {
         return storedLang;
       }
     } catch (e) {
-      // Could not access localStorage
+      console.error('Could not access localStorage for language:', e);
     }
   }
   return defaultLang;
