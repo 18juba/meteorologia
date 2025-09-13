@@ -1,10 +1,19 @@
+
+"use client";
 import "./home.scss";
 import Header from "@/components/layout/Header";
 import { TemperaturesMessages } from "@/components/temperatures/temperaturesMessages";
 import { Card } from "@/components/ui/card";
 import { TemperatureCard, UmidityCard } from "./Cards";
+import { sysStore } from '@/stores/sys';
+import { useEffect, useState } from 'react';
+import { getLabel } from '../../../langhandler';
 
-export default function Home({ temperature = 20 }: { temperature: number }) { 
+export default function Home({ temperature = 20 }: { temperature: number }) {
+    const { language } = sysStore();
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => { setMounted(true); }, []);
+    if (!mounted) return null;
     return (
         <>
         <Header /> 
@@ -14,9 +23,9 @@ export default function Home({ temperature = 20 }: { temperature: number }) {
                 <UmidityCard humidity={80}  />
             </div>
             <div className="w-full md:w-auto px-6 ">
-                <h2 className="text-white text-2xl">Get started by creating an account</h2>
+                <h2 className="text-white text-2xl">{getLabel('home-get-started', language)}</h2>
             </div>
         </div>
         </>
-    )
+    );
 }

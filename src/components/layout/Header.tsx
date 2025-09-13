@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link';
+import { LanguageSwitcher } from '../ui/LanguageSwitcher';
 
 const Header = () => {
   return (
@@ -14,6 +15,9 @@ const Header = () => {
                 <Link href="/register" className="px-2 py-1 border border-white rounded-md cursor-pointer transition-colors duration-150 hover:text-cyan-400 hover:border-cyan-400">Register Now</Link>
             </ul>
         </nav>
+        <div>
+          <LanguageSwitcher />
+        </div>
     </header>
   )
 }

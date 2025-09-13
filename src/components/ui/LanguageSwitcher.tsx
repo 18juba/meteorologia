@@ -1,9 +1,9 @@
 
 "use client";
-import { useRouter } from 'next/router';
-import { i18n } from 'next-i18next';
-import { sysStore, setLanguage } from '@/stores/sys';
-import { useTranslation } from 'next-i18next';
+
+import React, { useEffect, useState } from 'react';
+import { sysStore, setLanguage, subscribeLanguageChange } from '@/stores/sys';
+import { switchLanguage } from '../../../langhandler';
 
 const languages = [
   { code: 'pt', label: 'Português' },
@@ -11,15 +11,31 @@ const languages = [
   { code: 'es', label: 'Español' },
 ];
 
-
 export const LanguageSwitcher = () => {
-  const router = useRouter();
   const { language } = sysStore();
-  const { i18n } = useTranslation();
+  const [_, setRerender] = useState(0);
+
+  // Hydrate language from localStorage on mount
+  useEffect(() => {
+    const lang = localStorage.getItem('language');
+    if (lang && (lang === 'pt' || lang === 'en' || lang === 'es')) {
+      setLanguage(lang);
+    } else {
+      setLanguage('pt');
+      localStorage.setItem('language', 'pt');
+    }
+  }, []);
+
+  // Subscribe to language changes to force rerender
+  useEffect(() => {
+    const unsub = subscribeLanguageChange(() => setRerender(r => r + 1));
+    return unsub;
+  }, []);
+
   const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
     setLanguage(lng);
-    router.push(router.pathname, router.asPath, { locale: lng });
+    localStorage.setItem('language', lng);
+    switchLanguage(lng);
   };
 
   return (

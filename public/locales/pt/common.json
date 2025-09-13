@@ -12,5 +12,55 @@
   
   
   "hot-title": "Faz calor!",
-  "hot-text": "Uma temperatura acima de 26 °C é considerada quente e exige hidratação constante. Use roupas leves, protetor solar e evite sol direto nos horários mais quentes do dia."
+  "hot-text": "Uma temperatura acima de 26 °C é considerada quente e exige hidratação constante. Use roupas leves, protetor solar e evite sol direto nos horários mais quentes do dia.",
+
+  "error-found": "Encontramos um erro",
+  "error-404": "Erro 404",
+  "error-404-text": "Recomendamos que recarregue a página, se o erro persistir, volte novamente mais tarde.",
+  "go-back-home": "Voltar para a página inicial",
+  "home-hero-title": "Insights climáticos",
+  "home-hero-highlight": "personalizados",
+  "home-hero-after-highlight": "para sua localização",
+  "home-hero-description": "Crie sua conta, informe seu endereço e receba análises detalhadas sobre o clima da sua região. Dados precisos, previsões confiáveis e insights que importam.",
+  "home-signup-title": "Comece agora",
+  "home-signup-description": "Cadastre-se e receba seus primeiros insights climáticos",
+  "home-signup-name": "Nome completo",
+  "home-signup-name-placeholder": "Seu nome",
+  "home-signup-email": "Email",
+  "home-signup-email-placeholder": "seu@email.com",
+  "home-signup-address": "Endereço",
+  "home-signup-address-placeholder": "Rua, cidade, estado",
+  "home-signup-button": "Criar conta e começar",
+  "home-features-title": "O que você vai receber",
+  "home-feature-temperature": "Temperatura",
+  "home-feature-temperature-desc": "Monitoramento em tempo real e previsões precisas",
+  "home-feature-humidity": "Umidade",
+  "home-feature-humidity-desc": "Níveis de umidade e índice de conforto",
+  "home-feature-wind": "Vento",
+  "home-feature-wind-desc": "Velocidade, direção e rajadas",
+  "home-feature-uv": "UV Index",
+  "home-feature-uv-desc": "Proteção solar e recomendações",
+  "home-insight-title": "Insight do dia",
+  "home-select-city": "Selecione uma cidade",
+  "city-fortaleza": "Fortaleza, CE",
+  "city-fortaleza-condition": "Parcialmente nublado",
+  "city-fortaleza-insight": "Temperatura ideal para atividades ao ar livre. Umidade baixa (45%) proporciona sensação de conforto. Sem previsão de chuva nas próximas 6 horas.",
+  "city-rio-name": "Rio de Janeiro, RJ",
+  "city-rio-condition": "Ensolarado",
+  "city-rio-insight": "Dia quente e ensolarado. Umidade alta (75%) pode causar desconforto. Recomenda-se hidratação constante e proteção solar.",
+  "city-bh-name": "Belo Horizonte, MG",
+  "city-bh-condition": "Nublado",
+  "city-bh-insight": "Temperatura amena com céu nublado. Possibilidade de chuva leve no final da tarde. Ideal para atividades internas.",
+  "city-salvador-name": "Salvador, BA",
+  "city-salvador-condition": "Sol e nuvens",
+  "city-salvador-insight": "Clima tropical típico. Brisa marítima ameniza o calor. Excelente para atividades na praia com proteção solar adequada.",
+  "register-title": "Registrar",
+  "email-label": "Email",
+  "password-label": "Senha",
+  "register-button": "Registrar",
+  "login-title": "Entrar"
+
+
+
+
 }
