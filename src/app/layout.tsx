@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Saira } from "next/font/google";
 import "./globals.css";
-
+import "./icomoon.css";
 const SairaFont = Saira({
   variable: "--Saira",
   subsets: ["latin"]
@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html>
       <body
         className={`min-h-screen relative font1 antialiased bg-gradient-to-br from-slate-800 via-cyan-950 to-slate-900`}
       >
