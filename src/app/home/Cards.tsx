@@ -34,7 +34,6 @@ export function TemperatureCard({ temperature }: { temperature: number }) {
 
 
 export function UmidityCard({ humidity }: { humidity: number }) {
-    const { city, state } = UserStore();
     return (
         <Card style={{ backgroundColor: 'rgba(55, 36, 100, 0.43)', minWidth: 'fit-content' }} className="humidity-card col-span-12 md:col-span-12 lg:col-span-6 px-6 py-6 rounded-lg shadow-lg backdrop-blur-md border border-white/20">
             <h5 className="text-white text-3xl font-bold flex md:flex-row flex-col justify-between items-center ">

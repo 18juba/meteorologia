@@ -2,18 +2,19 @@
 "use client";
 import "./home.scss";
 import Header from "@/components/layout/Header";
-import { TemperaturesMessages } from "@/components/temperatures/temperaturesMessages";
-import { Card } from "@/components/ui/card";
+
 import { TemperatureCard, UmidityCard } from "./Cards";
 import { sysStore } from '@/stores/sys';
 import { useEffect, useState } from 'react';
 import { getLabel } from '../../../langhandler';
 
-export default function Home({ temperature = 20 }: { temperature: number }) {
+export default function Home() {
     const { language } = sysStore();
     const [mounted, setMounted] = useState(false);
     useEffect(() => { setMounted(true); }, []);
     if (!mounted) return null;
+
+    const temperature = 28; // Example temperature value
     return (
         <>
         <Header /> 
