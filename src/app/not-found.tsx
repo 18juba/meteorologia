@@ -28,7 +28,7 @@ export default function NotFound() {
             {tempTranslations.title}
           </h1>
           <Image
-            src="/images/illustrations/404-error.svg"
+            src="/illustrations/404-error.svg"
             width={500}
             height={300}
             className="mx-auto mb-1 text-shadow-2xl"
