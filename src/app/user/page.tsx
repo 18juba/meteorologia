@@ -1,5 +1,4 @@
 "use client";
-import "./home.scss";
 import Header from "@/components/layout/Header";
 import { TemperaturesMessages } from "@/components/temperatures/temperaturesMessages";
 import { Card } from "@/components/ui/card";
@@ -17,7 +16,6 @@ export default function Home({ temperature = 20 }: { temperature: number }) {
   if (!mounted) return null;
   return (
     <>
-      <Header />
       <section className="flex flex-col gap-8 px-20 py-8">
         <div className="flex flex-col md:flex-row gap-8">
           <div className="w-full flex flex-col gap-8">
