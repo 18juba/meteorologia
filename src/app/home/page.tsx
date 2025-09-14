@@ -18,14 +18,14 @@ export default function Home({ temperature = 20 }: { temperature: number }) {
   return (
     <>
       <Header />
-      <section className="flex flex-col gap-6 px-20 py-8">
-        <div className="flex flex-col md:flex-row gap-6">
-          <div className="w-full flex flex-col gap-6">
+      <section className="flex flex-col gap-8 px-20 py-8">
+        <div className="flex flex-col md:flex-row gap-8">
+          <div className="w-full flex flex-col gap-8">
             <TemperatureCard temperature={temperature} />
             <UmidityCard humidity={80} />
             <CloudCard />
           </div>
-          <div className="w-full flex flex-col gap-6">
+          <div className="w-full flex flex-col gap-8">
             <ActivityCard />
             <WindCard />
           </div>

@@ -154,6 +154,22 @@ export function WindCard() {
           Ventos
         </div>
       </h5>
+      <p className="text-white text-justify">
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book
+      </p>
+      <div className="flex items-center gap-8 p-4">
+        <div className="bg-sky-300/10 rounded-sm border-2 border-white p-2 pb-0 w-full text-center">
+          <p className="text-white text-xl font-bold">V(km/h)</p>
+          <h1 className="text-cyan-400 text-4xl font-bold my-2">20 km/h</h1>
+        </div>
+        <div className="bg-sky-300/10 rounded-sm border-2 border-white p-2 pb-0 w-full text-center">
+          <p className="text-white text-xl font-bold">Direção</p>
+          <h1 className="text-cyan-400 text-4xl font-bold my-2">Leste</h1>
+        </div>
+      </div>
     </Card>
   );
 }
