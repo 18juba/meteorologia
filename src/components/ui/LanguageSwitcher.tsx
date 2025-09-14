@@ -11,9 +11,10 @@ const languages = [
   { code: 'es', label: 'Español' },
 ];
 
+
 export const LanguageSwitcher = () => {
   const { language } = sysStore();
-  const [_, setRerender] = useState(0);
+  const [unused, setRerender] = useState(0);
 
   // Hydrate language from localStorage on mount
   useEffect(() => {

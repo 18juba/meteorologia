@@ -2,10 +2,7 @@ import type { Metadata } from "next";
 import { Saira } from "next/font/google";
 import "./globals.css";
 import "./icomoon.css";
-const SairaFont = Saira({
-  variable: "--Saira",
-  subsets: ["latin"]
-});
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
