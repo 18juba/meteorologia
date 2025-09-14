@@ -55,6 +55,9 @@
   "email-label": "Email",
   "password-label": "Password",
   "register-button": "Register",
-  "login-title": "Login"
+  "login-title": "Login",
   
+  "loading-info": "Selecting the best weather information...",
+
+  "building-page-title":"Work in progress"
 }

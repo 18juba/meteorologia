@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Saira } from "next/font/google";
 import "./globals.css";
+import "../styles/icomoon.css" //icomoon funcionando como fonte
 import "./icomoon.css";
 
 
