@@ -1,9 +1,9 @@
 import * as React from "react"
 import * as RadixProgress from '@radix-ui/react-progress';
 
-const Progress = () => {
+const ProgressLine = () => {
   return (
-    <div className="w-full max-w-xl mx-auto py-5 px-2">
+    <div className="w-full max-w-xl mx-auto py-5 px-0">
       <RadixProgress.Root 
         className="relative overflow-hidden bg-gray-200 rounded-full w-full h-1"
         style={{ transform: 'translateZ(0)' }}
@@ -30,4 +30,4 @@ const Progress = () => {
   );
 };
 
-export default Progress;
+export default ProgressLine;

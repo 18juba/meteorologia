@@ -7,8 +7,6 @@ import { sysStore } from '@/stores/sys';
 import { useEffect, useState } from 'react';
 
 
-
-
 export default function NotFound() {
   const { language } = sysStore();
   const [mounted, setMounted] = useState(false);
