@@ -21,45 +21,48 @@ import { Label } from "@/components/ui/label";
 import { MapPin, Thermometer, Droplets, Wind, Sun } from "lucide-react";
 import TVNoise from "@/components/ui/tv-noise";
 
+import { sysStore } from '@/stores/sys';
+import { useEffect } from 'react';
+import { getLabel } from '../../langhandler';
+
 const cityData = {
   fortaleza: {
-    name: "Fortaleza, CE",
+    name: getLabel('city-fortaleza'),
     temp: "31",
-    condition: "Parcialmente nublado",
-    insight:
-      "Temperatura ideal para atividades ao ar livre. Umidade baixa (45%) proporciona sensação de conforto. Sem previsão de chuva nas próximas 6 horas.",
+    condition: getLabel('city-fortaleza-condition'),
+    insight: getLabel('city-fortaleza-insight'),
   },
   "rio-janeiro": {
-    name: "Rio de Janeiro, RJ",
+    name: getLabel('city-rio-name'),
     temp: "28",
-    condition: "Ensolarado",
-    insight:
-      "Dia quente e ensolarado. Umidade alta (75%) pode causar desconforto. Recomenda-se hidratação constante e proteção solar.",
+    condition: getLabel('city-rio-condition'),
+    insight: getLabel('city-rio-insight'),
   },
   "belo-horizonte": {
-    name: "Belo Horizonte, MG",
+    name: getLabel('city-bh-name'),
     temp: "22",
-    condition: "Nublado",
-    insight:
-      "Temperatura amena com céu nublado. Possibilidade de chuva leve no final da tarde. Ideal para atividades internas.",
+    condition: getLabel('city-bh-condition'),
+    insight: getLabel('city-bh-insight'),
   },
   salvador: {
-    name: "Salvador, BA",
+    name: getLabel('city-salvador-name'),
     temp: "30",
-    condition: "Sol e nuvens",
-    insight:
-      "Clima tropical típico. Brisa marítima ameniza o calor. Excelente para atividades na praia com proteção solar adequada.",
+    condition: getLabel('city-salvador-condition'),
+    insight: getLabel('city-salvador-insight'),
   },
 };
 
 export default function Home() {
+  const { language } = sysStore();
   const [selectedCity, setSelectedCity] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
+  if (!mounted) return null;
 
   const handleCityChange = (value: string) => {
     setIsLoading(true);
     setSelectedCity("");
-
     setTimeout(() => {
       setSelectedCity(value);
       setIsLoading(false);
@@ -75,41 +78,38 @@ export default function Home() {
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
-                Insights climáticos{" "}
-                <span className="text-cyan-400">personalizados</span> para sua
-                localização
+                {getLabel('home-hero-title', language)}{" "}
+                <span className="text-cyan-400">{getLabel('home-hero-highlight', language)}</span> {getLabel('home-hero-after-highlight', language)}
               </h1>
               <p className="text-lg text-slate-300 leading-relaxed">
-                Crie sua conta, informe seu endereço e receba análises
-                detalhadas sobre o clima da sua região. Dados precisos,
-                previsões confiáveis e insights que importam.
+                {getLabel('home-hero-description', language)}
               </p>
             </div>
 
             {/* Sign Up Form */}
             <Card className="w-full max-w-md bg-gradient-to-tr from-cyan-900 to-slate-900 text-white">
               <CardHeader>
-                <CardTitle className="text-xl">Comece agora</CardTitle>
+                <CardTitle className="text-xl">{getLabel('home-signup-title', language)}</CardTitle>
                 <CardDescription className="text-slate-400">
-                  Cadastre-se e receba seus primeiros insights climáticos
+                  {getLabel('home-signup-description', language)}
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Nome completo</Label>
-                  <Input id="name" placeholder="Seu nome" />
+                  <Label htmlFor="name">{getLabel('home-signup-name', language)}</Label>
+                  <Input id="name" placeholder={getLabel('home-signup-name-placeholder', language)} />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="seu@email.com" />
+                  <Label htmlFor="email">{getLabel('home-signup-email', language)}</Label>
+                  <Input id="email" type="email" placeholder={getLabel('home-signup-email-placeholder', language)} />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="address">Endereço</Label>
-                  <Input id="address" placeholder="Rua, cidade, estado" />
+                  <Label htmlFor="address">{getLabel('home-signup-address', language)}</Label>
+                  <Input id="address" placeholder={getLabel('home-signup-address-placeholder', language)} />
                 </div>
                 <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground cursor-pointer">
                   <MapPin className="w-4 h-4 mr-2" />
-                  Criar conta e começar
+                  {getLabel('home-signup-button', language)}
                 </Button>
               </CardContent>
             </Card>
@@ -117,7 +117,7 @@ export default function Home() {
 
           {/* Right Column - Features Grid */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold">O que você vai receber</h2>
+            <h2 className="text-2xl font-semibold">{getLabel('home-features-title', language)}</h2>
 
             <div className="grid grid-cols-2 gap-4">
               <Card className="p-4 bg-cyan-950/50">
@@ -126,11 +126,11 @@ export default function Home() {
                     <Thermometer className="w-5 h-5 text-white" />
                   </div>
                   <h3 className="font-semibold text-sm text-white">
-                    Temperatura
+                    {getLabel('home-feature-temperature', language)}
                   </h3>
                 </div>
                 <p className="text-xs text-slate-300">
-                  Monitoramento em tempo real e previsões precisas
+                  {getLabel('home-feature-temperature-desc', language)}
                 </p>
               </Card>
 
@@ -139,10 +139,10 @@ export default function Home() {
                   <div className="p-2 bg-primary/10 rounded-lg">
                     <Droplets className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="font-semibold text-sm text-white">Umidade</h3>
+                  <h3 className="font-semibold text-sm text-white">{getLabel('home-feature-humidity', language)}</h3>
                 </div>
                 <p className="text-xs text-slate-300">
-                  Níveis de umidade e índice de conforto
+                  {getLabel('home-feature-humidity-desc', language)}
                 </p>
               </Card>
 
@@ -151,10 +151,10 @@ export default function Home() {
                   <div className="p-2 bg-primary/10 rounded-lg">
                     <Wind className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="font-semibold text-sm text-white">Vento</h3>
+                  <h3 className="font-semibold text-sm text-white">{getLabel('home-feature-wind', language)}</h3>
                 </div>
                 <p className="text-xs text-slate-300">
-                  Velocidade, direção e rajadas
+                  {getLabel('home-feature-wind-desc', language)}
                 </p>
               </Card>
 
@@ -163,29 +163,25 @@ export default function Home() {
                   <div className="p-2 bg-primary/10 rounded-lg">
                     <Sun className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="font-semibold text-sm text-white">UV Index</h3>
+                  <h3 className="font-semibold text-sm text-white">{getLabel('home-feature-uv', language)}</h3>
                 </div>
                 <p className="text-xs text-slate-300">
-                  Proteção solar e recomendações
+                  {getLabel('home-feature-uv-desc', language)}
                 </p>
               </Card>
             </div>
 
             <div className="flex items-center justify-between">
-              <h3 className="font-semibold">Insight do dia</h3>
+              <h3 className="font-semibold">{getLabel('home-insight-title', language)}</h3>
               <Select onValueChange={handleCityChange}>
                 <SelectTrigger className="w-48">
-                  <SelectValue placeholder="Selecione uma cidade" />
+                  <SelectValue placeholder={getLabel('home-select-city', language)} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="fortaleza">Fortaleza, CE</SelectItem>
-                  <SelectItem value="rio-janeiro">
-                    Rio de Janeiro, RJ
-                  </SelectItem>
-                  <SelectItem value="belo-horizonte">
-                    Belo Horizonte, MG
-                  </SelectItem>
-                  <SelectItem value="salvador">Salvador, BA</SelectItem>
+                  <SelectItem value="fortaleza">{getLabel('city-fortaleza', language)}</SelectItem>
+                  <SelectItem value="rio-janeiro">{getLabel('city-rio-name', language)}</SelectItem>
+                  <SelectItem value="belo-horizonte">{getLabel('city-bh-name', language)}</SelectItem>
+                  <SelectItem value="salvador">{getLabel('city-salvador-name', language)}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
