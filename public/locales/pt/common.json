@@ -58,9 +58,10 @@
   "email-label": "Email",
   "password-label": "Senha",
   "register-button": "Registrar",
-  "login-title": "Entrar"
+  "login-title": "Entrar",
 
 
+  "loading-info": "Selecionando as melhores informações climáticas...",
 
-
+  "building-page-title":"Página em construção"
 }

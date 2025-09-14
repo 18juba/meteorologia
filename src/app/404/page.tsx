@@ -7,8 +7,6 @@ import { sysStore } from '@/stores/sys';
 import { useEffect, useState } from 'react';
 
 
-
-
 export default function NotFound() {
   const { language } = sysStore();
   const [mounted, setMounted] = useState(false);
@@ -27,7 +25,7 @@ export default function NotFound() {
             {getLabel("error-found", language)}
           </h1>
           <Image
-            src="/images/illustrations/404-error.svg"
+            src="/illustrations/404-error.svg"
             width={500}
             height={300}
             className="mx-auto mb-1 text-shadow-2xl"
