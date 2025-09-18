@@ -1,4 +1,4 @@
-import { api, dedicatedApit } from "../../apiV1"
+import { api, dedicatedApit } from "../../api"
 
 export const userApi = dedicatedApit("users")
 
