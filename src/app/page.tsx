@@ -24,6 +24,7 @@ import TVNoise from "@/components/ui/tv-noise";
 import { sysStore } from '@/stores/sys';
 import { useEffect } from 'react';
 import { getLabel } from '../../langhandler';
+import { anonimousLogin } from "../../api/routes/users";
 
 const cityData = {
   fortaleza: {
@@ -57,8 +58,12 @@ export default function Home() {
   const [selectedCity, setSelectedCity] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    anonimousLogin();
+  }, []);
   useEffect(() => { setMounted(true); }, []);
   if (!mounted) return null;
+
 
   const handleCityChange = (value: string) => {
     setIsLoading(true);
@@ -70,11 +75,10 @@ export default function Home() {
   };
 
   return (
-    <div className="">
+    <div>
       <Header />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-white">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Hero Content */}
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
@@ -86,7 +90,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Sign Up Form */}
             <Card className="w-full max-w-md bg-gradient-to-tr from-cyan-900 to-slate-900 text-white">
               <CardHeader>
                 <CardTitle className="text-xl">{getLabel('home-signup-title', language)}</CardTitle>
@@ -186,7 +189,6 @@ export default function Home() {
               </Select>
             </div>
 
-            {/* Sample Insight Card */}
             <Card className="relative p-6 bg-white/5 border-none text-white">
               <div className="space-y-4">
                 {isLoading ? (

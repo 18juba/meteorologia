@@ -6,10 +6,20 @@ import { TemperatureCard, UmidityCard, CloudCard, ActivityCard, WindCard, UVCard
 import { sysStore } from "@/stores/sys";
 import { useEffect, useState } from "react";
 import { getLabel } from "../../../langhandler";
+import { getDashboard } from "../../../api/routes/users";
 
 export default function Home({ temperature = 20 }: { temperature: number }) {
   const { language } = sysStore();
   const [mounted, setMounted] = useState(false);
+  const [cardInfos, setCardInfos] = useState<any>(null);
+
+  useEffect(() => {
+    getDashboard().then(({data}) => {
+      setCardInfos(data.cards);
+    })
+  }, [])
+
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -24,7 +34,7 @@ export default function Home({ temperature = 20 }: { temperature: number }) {
             <CloudCard />
           </div>
           <div className="w-full flex flex-col gap-8">
-            <ActivityCard />
+            <ActivityCard atividades_recomendadas={cardInfos?.atividades_recomendadas} />
             <WindCard />
           </div>
         </div>

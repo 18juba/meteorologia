@@ -91,12 +91,7 @@ export function CloudCard() {
     >
       <h5 className="text-white text-3xl font-bold flex md:flex-row flex-col justify-between items-center ">
         <div className="flex items-center gap-2">
-          <Image
-            src={ICONS.humidity}
-            alt="Humidity icon"
-            width={45}
-            height={45}
-          />
+
           <Image
             src={ICONS.humidity}
             alt="Humidity icon"
@@ -116,7 +111,7 @@ export function CloudCard() {
   );
 }
 
-export function ActivityCard() {
+export function ActivityCard({ atividades_recomendadas }: { atividades_recomendadas?: string }) {
   return (
     <Card
       style={{ minWidth: "fit-content" }}
@@ -133,6 +128,8 @@ export function ActivityCard() {
           Atividades Recomendadas
         </div>
       </h5>
+       <p className="text-white text-justify" dangerouslySetInnerHTML={{__html: atividades_recomendadas || ""}}>
+       </p>
     </Card>
   );
 }
