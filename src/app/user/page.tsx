@@ -31,7 +31,7 @@ export default function Home({ temperature = 20 }: { temperature: number }) {
           <div className="w-full flex flex-col gap-8">
             <TemperatureCard temperature={temperature} />
             <UmidityCard humidity={80} />
-            <CloudCard />
+            {/* <CloudCard /> removed for layout adjustments  */}
           </div>
           <div className="w-full flex flex-col gap-8">
             <ActivityCard atividades_recomendadas={cardInfos?.atividades_recomendadas} />

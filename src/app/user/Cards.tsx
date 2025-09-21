@@ -10,12 +10,17 @@ import { TemperaturesMessages } from "@/components/temperatures/temperaturesMess
 import { Card } from "@/components/ui/card";
 import { UserStore } from "@/stores/user";
 
+
+
+
+//small cards defaulting 204px
+
 export function TemperatureCard({ temperature }: { temperature: number }) {
   const { city, state } = UserStore();
 
   return (
     <Card
-      style={{ minWidth: "fit-content" }}
+      style={{ minWidth: "fit-content", minHeight: "204px" }}
       className="bg-transparent backdrop-blur-md col-span-12 md:col-span-12 lg:col-span-6 p-5 rounded-lg shadow-md shadow-black/80 border-2 border-white"
     >
       <h5 className="text-white flex md:flex-row flex-col justify-between items-center ">
@@ -44,11 +49,37 @@ export function TemperatureCard({ temperature }: { temperature: number }) {
   );
 }
 
+
+export function ActivityCard({ atividades_recomendadas }: { atividades_recomendadas?: string }) {
+  return (
+    <Card
+      style={{ minWidth: "fit-content", minHeight: "204px" }}
+      className="bg-transparent backdrop-blur-md p-5 rounded-lg shadow-md shadow-black/80 border-2 border-white"
+    >
+      <h5 className="text-white text-3xl font-bold flex md:flex-row flex-col justify-between items-center ">
+        <div className="flex items-center gap-2">
+          <Image
+            src={ICONS.humidity}
+            alt="Humidity icon"
+            width={45}
+            height={45}
+          />
+          Atividades Recomendadas
+        </div>
+      </h5>
+       <p className="text-white text-justify" dangerouslySetInnerHTML={{__html: atividades_recomendadas || ""}}>
+       </p>
+    </Card>
+  );
+}
+
+// Bigger cards 393px
+
 export function UmidityCard({ humidity }: { humidity: number }) {
   const { city, state } = UserStore();
   return (
     <Card
-      style={{ minWidth: "fit-content" }}
+      style={{ minWidth: "fit-content", minHeight: "393px" }}
       className="bg-transparent backdrop-blur-md col-span-12 md:col-span-12 lg:col-span-6 p-6 rounded-lg shadow-md shadow-black/80 border-2 border-white"
     >
       <h5 className="text-white text-3xl font-bold flex md:flex-row flex-col justify-between items-center ">
@@ -83,61 +114,12 @@ export function UmidityCard({ humidity }: { humidity: number }) {
   );
 }
 
-export function CloudCard() {
-  return (
-    <Card
-      style={{ minWidth: "fit-content" }}
-      className="bg-transparent backdrop-blur-md p-5 rounded-lg shadow-md shadow-black/80 border-2 border-white"
-    >
-      <h5 className="text-white text-3xl font-bold flex md:flex-row flex-col justify-between items-center ">
-        <div className="flex items-center gap-2">
 
-          <Image
-            src={ICONS.humidity}
-            alt="Humidity icon"
-            width={45}
-            height={45}
-          />
-          Nuvens e Precipitação
-        </div>
-      </h5>
-      <p className="text-white text-justify">
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book
-      </p>
-    </Card>
-  );
-}
-
-export function ActivityCard({ atividades_recomendadas }: { atividades_recomendadas?: string }) {
-  return (
-    <Card
-      style={{ minWidth: "fit-content" }}
-      className="bg-transparent backdrop-blur-md p-5 rounded-lg shadow-md shadow-black/80 border-2 border-white"
-    >
-      <h5 className="text-white text-3xl font-bold flex md:flex-row flex-col justify-between items-center ">
-        <div className="flex items-center gap-2">
-          <Image
-            src={ICONS.humidity}
-            alt="Humidity icon"
-            width={45}
-            height={45}
-          />
-          Atividades Recomendadas
-        </div>
-      </h5>
-       <p className="text-white text-justify" dangerouslySetInnerHTML={{__html: atividades_recomendadas || ""}}>
-       </p>
-    </Card>
-  );
-}
 
 export function WindCard() {
   return (
     <Card
-      style={{ minWidth: "fit-content" }}
+      style={{ minWidth: "fit-content", minHeight: "393px" }}
       className="bg-transparent backdrop-blur-md p-5 rounded-lg shadow-md shadow-black/80 border-2 border-white"
     >
       <h5 className="text-white text-3xl font-bold flex md:flex-row flex-col justify-between items-center ">
@@ -171,6 +153,36 @@ export function WindCard() {
   );
 }
 
+
+
+export function CloudCard() {
+  return (
+    <Card
+      style={{ minWidth: "fit-content" }}
+      className="bg-transparent backdrop-blur-md p-5 rounded-lg shadow-md shadow-black/80 border-2 border-white"
+    >
+      <h5 className="text-white text-3xl font-bold flex md:flex-row flex-col justify-between items-center ">
+        <div className="flex items-center gap-2">
+
+          <Image
+            src={ICONS.humidity}
+            alt="Humidity icon"
+            width={45}
+            height={45}
+          />
+          Nuvens e Precipitação
+        </div>
+      </h5>
+      <p className="text-white text-justify">
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book
+      </p>
+    </Card>
+  );
+}
+
 export function UVCard() {
   return (
     <Card
@@ -185,7 +197,7 @@ export function UVCard() {
             width={45}
             height={45}
           />
-          UV Index
+          General information
         </div>
       </h5>
     </Card>
