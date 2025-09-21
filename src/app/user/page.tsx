@@ -29,13 +29,13 @@ export default function Home({ temperature = 20 }: { temperature: number }) {
       <section className="flex flex-col gap-8 px-20 py-8">
         <div className="flex flex-col md:flex-row gap-8">
           <div className="w-full flex flex-col gap-8">
-            <TemperatureCard temperature={temperature} />
-            <UmidityCard humidity={80} />
+            <TemperatureCard temperature={cardInfos?.outros_cards?.Temperatura?.analise} />
+            <UmidityCard humidity={cardInfos?.outros_cards.Umidade.analise} />
             {/* <CloudCard /> removed for layout adjustments  */}
           </div>
           <div className="w-full flex flex-col gap-8">
             <ActivityCard atividades_recomendadas={cardInfos?.atividades_recomendadas} />
-            <WindCard />
+            <WindCard wind={cardInfos?.outros_cards?.Ventos?.analise}/>
           </div>
         </div>
         <UVCard />
