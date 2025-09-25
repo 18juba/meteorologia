@@ -59,5 +59,23 @@
   
   "loading-info": "Selecting the best weather information...",
 
-  "building-page-title":"Work in progress"
+  "building-page-title":"Work in progress",
+
+  "login-forgot-password":"Forgot the password?",
+  "login-button":"Connect",
+  "register-full-name":"Full Name",
+  "hello-again-title":"Hello again!, how do you feel today?",
+  "hello-again-account":"Don´t have an account?",
+  "hello-again-button":"Register here",
+  "welcome-container-title":"Hello, Welcome!",
+  "welcome-container-message":"Check the best weather insights before leaving home, and have a perfect day!",
+  "welcome-container-account":"Already have an account?",
+  "welcome-container-button":"Login here",
+
+
+  "change-password-title":"Change password",
+  "change-password-description":"Please inform us of your email and confirm your new password.",
+  "change-password-new-password":"New password",
+  "change-password-confirm-password":"Confirm new password",
+  "change-password-button":"Send"
 }
