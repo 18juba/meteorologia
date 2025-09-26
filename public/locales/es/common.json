@@ -59,5 +59,23 @@
 
   "loading-info": "Seleccionando la mejor información climática...",
 
-  "building-page-title":"Página en construcción"
+  "building-page-title":"Página en construcción",
+
+  "login-forgot-password":"Olvidaste la contraseña?",
+  "login-button":"Conectar",
+  "register-full-name":"Nombre completo",
+  "hello-again-title":"Hola de nuevo, cómo estas?",
+  "hello-again-account":"No tienes una cuenta?",
+  "hello-again-button":"Registrate aquí",
+  "welcome-container-title":"Hola, Bienvenido!",
+  "welcome-container-message":"Verifique los mejores insights climáticos antes de salir de casa y tenga un dia perfecto!",
+  "welcome-container-account":"Tiene una cuenta?",
+  "welcome-container-button":"Iniciar sesión aquí",
+
+
+  "change-password-title":"Cambio de contraseña",
+  "change-password-description":"Por favor, infórmenos su correo electrónico y confirme su nueva contraseña.",
+  "change-password-new-password":"Nueva contraseña",
+  "change-password-confirm-password":"Confirme la nueva contraseña",
+  "change-password-button":"Enviar"
 }
